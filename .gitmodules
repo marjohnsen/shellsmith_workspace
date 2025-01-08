@@ -1,4 +1,0 @@
-[submodule ".shellsmith"]
-	path = .shellsmith
-	url = https://github.com/marjohnsen/shellsmith
-	branch = main
