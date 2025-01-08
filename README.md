@@ -91,4 +91,12 @@ When running `smith run`, ShellSmith will prompt you to install the dependencies
 
 ### Execute user defined scripts
 
-Any `.sh` script in the `app/` directory is executable through the terminal user interface in `smith run`.
+Any `.sh` script in the `apps/` directory is executable through the terminal user interface in `smith run`.
+
+### `apps/init.sh`
+
+This script will always be executed first regardless of dependencies. Can be used to install initial stuff from other package managers, set up environment variables, other stuff that do not require a stand alone script.
+
+### Best practices
+
+Try to write the scripts such that they can be run multiple times without causing issues. This is especially important for the `apps/init.sh` script.
