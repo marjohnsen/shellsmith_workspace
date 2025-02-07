@@ -61,13 +61,6 @@ source "$SHELLSMITH_UTILS/safe_symlink.sh"
 safe_symlink <path-to-source> <path-to-destination>
 ```
 
-*safe_symlink:* prompts you with options if the file already exists
-
-```bash
-source "$SHELLSMITH_UTILS/safe_symlink.sh"
-safe_symlink <path-to-source> <path-to-destination>
-```
-
 *mason_build_and_ninja_install*: builds and installs a package using mason and ninja from a git repository, optional tag, and submodules.
 
 ```bash
@@ -80,11 +73,11 @@ mason_build_and_ninja_install "<main github repo> <optional tag>" \
 
 ### Declare dependencies
 
-Dependencies are listed directly below the shebang using `//` followed by a space. Each dependency corresponds to a script in `apps/` without the `.sh` extension. For example:  
+Dependencies are listed directly below the shebang using `:` followed by a space. Each dependency corresponds to a script in `apps/` without the `.sh` extension. For example:  
 
 ```bash
 #!/bin/bash
-// app1 app2 app3
+: app1 app2 app3
 ```  
 
 When running `smith run`, ShellSmith will prompt you to install the dependencies in the correct order.
