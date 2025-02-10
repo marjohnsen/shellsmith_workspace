@@ -34,10 +34,13 @@ The workspace contain three main directories and one submodule:
 
 `.shellsmith/` - a submodule containing the ShellSmith itself
 
+You can of course add more directories as you see fit..
+
 ### Environment Variables
 
 The following environment variables are available to you when executing the scripts through `shell run`:
 
+`$SHELLSMITH_ROOT` - Path to the ShellSmith repo itself. This is also a submodule of the workspace.<br>
 `$SHELLSMITH_WORKSPACE` - Path to the workspace repo<br>
 `$SHELLSMITH_DOTFILES` - Path to `dotfiles/`<br>
 `$SHELLSMITH_APPS` - Path to `app/`<br>
@@ -46,15 +49,9 @@ The following environment variables are available to you when executing the scri
 
 ### Utility Functions
 
-Several utility functions are available in $SHELLSMITH_UTILS:
+Several utility functions are available from `$SHELLSMITH_UTILS`:
 
-*interface:* E.g., sets set -e to exit on error
-
-```bash
-source "$SHELLSMITH_UTILS/interface.sh" 
-```
-
-*safe_symlink:* prompts you with options if the file already exists
+*safe_symlink:* Safely creates a symlink by first checking if the destination exists and if it does, prompts the user to overwrite it.
 
 ```bash
 source "$SHELLSMITH_UTILS/safe_symlink.sh"
@@ -88,8 +85,8 @@ Any `.sh` script in the `apps/` directory is executable through the terminal use
 
 ### `apps/init.sh`
 
-This script will always be executed first regardless of dependencies. Can be used to install initial stuff from other package managers, set up environment variables, other stuff that do not require a stand alone script.
+Will always be executed first if choosen. Can be used to install stuff from package managers, initial setup, etc..
 
 ### Best practices
 
-Try to write the scripts such that they can be run multiple times without causing issues. This is especially important for the `apps/init.sh` script.
+Try to write the scripts such that they can be executed multiple times without causing issues. This is especially important for the `apps/init.sh` script. I tend to start every script by trying to remove the current configuration before intalling the new one.Conveniently, I can easily update the configuration by running the script again.
