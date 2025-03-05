@@ -1,0 +1,8 @@
+[submodule ".shellsmith"]
+	path = .shellsmith
+	url = https://github.com/marjohnsen/shellsmith
+	branch = main
+[submodule "shared"]
+	path = shared
+	url = git@private:marjohnsen/shellsmith_workspace.git
+	branch = shared
